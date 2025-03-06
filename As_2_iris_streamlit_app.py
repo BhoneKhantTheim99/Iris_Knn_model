@@ -17,7 +17,6 @@ with open('knn_iris_model_scaled.pkl', 'rb') as f:
 
 if st.button("Predict"):
     input_features = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
-    input_features = loaded_scaler.transform(input_features)
 
     value = loaded_model.predict(input_features)
     if value == 0:
