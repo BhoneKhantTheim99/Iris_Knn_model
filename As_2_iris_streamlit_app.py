@@ -1,8 +1,6 @@
 import streamlit as st
 import pickle
 import numpy as np
-from sklearn.preprocessing import StandardScaler
-scaler = StandardScaler()
 
 # Streamlit UI
 st.title("🪴I own an Iris flowers Shop🌱")
@@ -17,7 +15,7 @@ with open('knn_iris_model_scaled.pkl', 'rb') as f:
 
 if st.button("Predict"):
     input_features = np.array([[sepal_length, sepal_width, petal_length, petal_width]])
-    input_features = scaler.fit_transform(input_features)
+    input_features = loaded_scaler.transform(input_features)
 
     value = loaded_scaler.predict(input_features)
     print(value)
